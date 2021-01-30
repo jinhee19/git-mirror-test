@@ -7,16 +7,28 @@ public class BOJ_10844 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int N = scan.nextInt();
-		int[] dp = new int[N+1];
+		long ans = 0;
+		long[][] dp = new long[N+1][10];
 		
-		dp[1] = 9;
-		if(N >= 2) dp[2] = 17;
+		dp[1][0] = 0;
+		for(int i = 1; i <= 9; i++)
+			dp[1][i] = 1;
 		
-		for(int i = 3; i <= N; i++) {
-			dp[i] = (2*dp[i-1] - 2)%1000000000;
+		for(int i = 2; i <= N; i++) {
+			for(int j = 0; j <= 9; j++) {
+				if(j == 0)
+					dp[i][j] = dp[i-1][j+1];
+				else if(j == 9)
+					dp[i][j] = dp[i-1][j-1];
+				else
+					dp[i][j] = dp[i-1][j-1] + dp[i-1][j+1];
+				dp[i][j] = dp[i][j]%1000000000;
+			}
 		}
 		
-		System.out.println(dp[N]);
+		for(int i = 0; i <= 9; i++)
+			ans = ans + dp[N][i];
+		System.out.println(ans%1000000000);
 		scan.close();
 	}
 }
