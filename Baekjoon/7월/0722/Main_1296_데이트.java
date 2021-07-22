@@ -56,3 +56,7 @@ public class Main_1296_데이트 {
 		System.out.println(answer);
 	}
 }
+
+/*
+ * 분류 : 구현, 문자열
+ */
