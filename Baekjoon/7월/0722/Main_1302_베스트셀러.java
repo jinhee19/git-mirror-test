@@ -38,3 +38,8 @@ public class Main_1302_베스트셀러 {
 		
 	}
 }
+
+/*
+ * 분류 : 자료구조, 문자열, 정렬, 해시를 사용한 집합과 맵
+ * # Map 키(key), 값(value) 정렬 방법과 자동 정렬 참고 : https://ponyozzang.tistory.com/404
+ */
