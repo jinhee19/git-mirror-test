@@ -14,14 +14,18 @@ public class Main_1316_그룹단어체커 {
 			String word = br.readLine();
 			boolean[] alphabet = new boolean[26];
 			char ch = word.charAt(0);
-			alphabet[(int)ch - 96] = true;
+			alphabet[(int)ch - 97] = true;
 			int j = 1;
 			
 			for(j = 1; j < word.length(); j++) {
-				if(ch != word.charAt(j) && alphabet[(int)word.charAt(j) - 96])
-					break;
-				else {
-					alphabet[(int)word.charAt(j)-96] = true;
+				char temp = word.charAt(j);
+				if(ch != temp) {
+					if(alphabet[(int)temp - 97] == true)
+						break;
+					else {
+						ch = temp;
+						alphabet[(int)temp - 97] = true; 
+					}
 				}
 			}
 			
